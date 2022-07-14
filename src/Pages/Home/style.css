@@ -1,47 +1,137 @@
-* {
-    background-color: #181a20;
-}
-
 .container {
+    background-color: #181a20;
     width: 100%;
     height: 100vh;
     padding: 20px;
 }
 
-.boxVoltar {
+.homeHeader {
     display: flex;
-    align-items: center;
 
     width: 100%;
     height: 5em;
+
+    align-items: center;
 }
 
-.botaoVoltar {  
-    color: #ffffff;
-
-    width: 25px;
-    height: 25px;
+.iconPerfil {
+    background-color: white;
+    border-radius: 50%;
 }
 
-.botaoVoltar:hover {
-    color: #6b6f7a;
+.textHeaderNome {
+    color: white;
+
+    letter-spacing: 0.7px;
+    font-size: 14px;
+
+    margin-left: 15px;
+}
+
+.textHeaderRegistrar {
+    color: white;
+
+    letter-spacing: 0.7px;
+    font-size: 14px;
+
+    margin-left: 15px;
+}
+
+.textHeaderRegistrar:hover {
+    color: #40444e;
     cursor: pointer;
 }
 
-.boxLogo {
+.boxNotiFav {
+    display: flex;
+
+    margin-left: 16em;
+
+    gap: 25px;
+}
+
+.iconNotiFav {
+    color: white;
+}
+
+.boxModal {
+    background-color: #0005;
+
+    display: flex;
+    position: fixed;
+
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.boxMenorModal {
+    background-color: white;
+
     display: flex;
     flex-direction: column;
 
-    align-items: center;
+    width: 20em;
+    height: 20em;
+
+    border-radius: 25px;
+
     justify-content: center;
-
-    width: 100%;
-    height: 35em;
-
-    gap: 5em;
+    align-items: center;
 }
 
-.logo {
-    width: 160px;
-    height: 160px;
+.tituloLoading {
+    margin-top: 5px;
+    font-size: 17px;
 }
+
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 4px solid #181a20;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    4.9% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    5% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }

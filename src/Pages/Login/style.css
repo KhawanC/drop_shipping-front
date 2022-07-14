@@ -1,0 +1,128 @@
+.container {
+    background-color: #181a20;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+.boxVoltar {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 5em;
+}
+
+.botaoVoltar {  
+    color: #ffffff;
+
+    width: 25px;
+    height: 25px;
+}
+
+.botaoVoltar:hover {
+    color: #6b6f7a;
+    cursor: pointer;
+}
+
+.boxLogo {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 26em;
+
+    gap: 2em;
+}
+
+.imagemLogo {
+    color: white;
+    width: 160px;
+    height: 160px;
+}
+
+.tituloLogo {
+    color: white;
+
+    font-weight: 500;
+    font-size: 27px;
+}
+
+.boxInput {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 15em;
+
+    justify-content: center;
+
+    gap: 25px;
+}
+
+.inputStyle {
+    background-color: #1f222a;
+    color: white;
+
+    border: none;
+    border-radius: 20px;
+
+    width: 100%;
+    height: 6.5rem;
+
+    padding: 10px;
+
+    font-size: 16px;
+}
+
+.boxEntrarCriar {
+    width: 100%;
+    height: 20.5em;
+}
+
+.botaoEntrar {
+    background-color: #393939;
+    color: white;
+
+    border: none;
+    border-radius: 30px;
+
+    width: 100%;
+    height: 5.5rem;
+
+    margin-top: 4em;
+
+    font-size: 15px;
+}
+
+.botaoEntrar:hover {
+    background-color: white;
+    color: black;
+
+    cursor: pointer;
+}
+
+.EsqueciCriar {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10em; 
+
+    margin-top: 5em;
+}
+
+.textoEsqueciCriar {
+    color: white;
+
+    font-size: 13px;
+}
+
+.textoEsqueciCriar:hover {
+    color: #5c5c5c; 
+    cursor: pointer;
+}
