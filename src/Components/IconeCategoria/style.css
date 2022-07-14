@@ -1,0 +1,49 @@
+.containerIconeCategoria {
+    display: flex;
+    flex-direction: column;
+
+    width: 7em;
+    height: 7em;
+    
+    margin: 9px;
+
+    align-items: center;
+    justify-content: space-between;
+
+    transition: transform .3s ease-out;
+}
+
+.containerIconeCategoria:hover {
+    cursor: pointer;
+    transform: translate(0, -5px);
+}
+
+.boxIcone {
+    display: flex;
+
+    background-color: #35383f;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.boxTextCategoria {
+    display: flex;
+
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.textCategoria {
+    color: white;
+
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
