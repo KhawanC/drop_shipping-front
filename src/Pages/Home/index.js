@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css'
+import './homeCss.css'
 import { AiOutlineHeart, AiOutlineBars} from 'react-icons/ai'
 import { MdOutlineNotifications } from 'react-icons/md';
 import { Box, Carousel, Image, TextInput } from 'grommet';
@@ -8,6 +8,7 @@ import { Search } from 'grommet-icons';
 import { IconeCategoria } from '../../Components/IconeCategoria';
 import { LoadingScreen } from '../../Components/LoadingScreen';
 import { SideBar } from '../../Components/SideBar';
+import { ItemPaginaHome } from '../../Components/ItemPaginaHome';
 
 export const Home = (props) => {
 
@@ -17,10 +18,7 @@ export const Home = (props) => {
     let navigate = useNavigate();
 
     function navegarCadastro() {
-        setLoading(true)
-        setTimeout(function() {
-            navigate('/login')
-        }, 800)
+        navigate('/login')
     }
 
     function closeHandle() {
@@ -28,7 +26,7 @@ export const Home = (props) => {
     }
 
     return(
-        <div className='container'>
+        <div className='containerHome'>
             <div className='homeHeader'>
                 <AiOutlineBars
                     className='iconSideBar'
@@ -80,8 +78,22 @@ export const Home = (props) => {
                 <IconeCategoria/>
                 <IconeCategoria/>
             </div>
+            <div className='boxTextOfertas2'>
+                <p className='boxOfertaTituloMaior'>Mais Populares</p>
+                <p className='boxOfertaTituloMenor'>Ver todas</p>
+            </div>
+            <div className='boxDisplayItensHome'>
+                <ItemPaginaHome/>
+                <ItemPaginaHome/>
+                <ItemPaginaHome/>
+                <ItemPaginaHome/>
+                <ItemPaginaHome/>
+                <ItemPaginaHome/>
+                <ItemPaginaHome/>
+                <ItemPaginaHome/>
+            </div>
             {isLoading ? <LoadingScreen/> : <div></div>}
-            {isSideBarOpen ? <SideBar loggado={isLoggado} handleClose={closeHandle}/> : <div></div>}
+            {isSideBarOpen ? <SideBar loggado={isLoggado} handleClose={closeHandle} navegar={navegarCadastro}/> : <div></div>}
         </div>
     );
 };

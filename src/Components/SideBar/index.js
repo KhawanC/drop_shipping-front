@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css'
+import './sideBar.css'
 import { AiOutlineClose } from 'react-icons/ai'
 
 export const SideBar = (props) => {
@@ -20,7 +20,7 @@ export const SideBar = (props) => {
                     <span className='textBoxNavigation'>Carrinho</span>
                     <span className='textBoxNavigation'>Fale Conosco</span>
                 </div> : <div className='boxNavigation'>
-                    <span className='textBoxNavigation'>Registrar-se</span>
+                    <span className='textBoxNavigation' onClick={props.navegar}>Registrar-se</span>
                 </div>}
                 
             </div>

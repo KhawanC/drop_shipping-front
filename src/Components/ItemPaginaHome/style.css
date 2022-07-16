@@ -1,0 +1,51 @@
+.containerItenPaginaHome {
+    display: flex;
+    flex-direction: column;
+
+    width: 14em;
+    height: 18em;
+
+    padding: 5px;
+}
+
+.boxImagemItemPaginaHome {
+    display: flex;
+
+    background-color: #35383f;
+    border-radius: 25px;
+
+    width: 100%;
+    height: 65%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.boxDescPrecoItemPaginaHome {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 35%;
+
+    justify-content: space-evenly;
+}
+
+.imagemItemPaginaHome {
+    width: 10em;
+    height: 10em;
+}
+
+.tituloItemPaginaHome {
+    color: white;
+
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.precoItemPaginaHome {
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+}

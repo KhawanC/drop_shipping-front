@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './style.css'
+import './loginCss.css'
 import { BsArrowLeft, BsBrightnessAltHighFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ export const Login = () => {
     let navigate = useNavigate();
 
     return(
-        <div className='container'>
+        <div className='containerLogin'>
             <div className='boxVoltar'>
                 <BsArrowLeft className='botaoVoltar' onClick={() => navigate('/')}/>
             </div>
@@ -32,9 +32,9 @@ export const Login = () => {
                 <button className='botaoEntrar'>Entrar</button>
             
                 <div className='EsqueciCriar'>
-                    <p className='textoEsqueciCriar'>Esqueci minha senha</p>
-                    <p className='textoEsqueciCriar'>Criar uma conta</p>
-                </div>
+                    <p className='textoEsqueciCriar' style={{marginLeft:'20px'}}>Esqueci minha senha</p>
+                    <p className='textoEsqueciCriar' style={{marginRight:'20px'}}>Fale Conosco</p>
+                </div>               
             </div>
         </div>
     );
