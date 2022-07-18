@@ -11,7 +11,7 @@ export const Login = () => {
     return(
         <div className='containerLogin'>
             <div className='boxVoltar'>
-                <BsArrowLeft className='botaoVoltar' onClick={() => navigate('/')}/>
+                <BsArrowLeft className='botaoVoltar' onClick={() => navigate(-1)}/>
             </div>
             <div className='boxLogo'>
                 <BsBrightnessAltHighFill className='imagemLogo'/>
@@ -32,8 +32,9 @@ export const Login = () => {
                 <button className='botaoEntrar'>Entrar</button>
             
                 <div className='EsqueciCriar'>
-                    <p className='textoEsqueciCriar' style={{marginLeft:'20px'}}>Esqueci minha senha</p>
-                    <p className='textoEsqueciCriar' style={{marginRight:'20px'}}>Fale Conosco</p>
+                    <p className='textoEsqueciCriar' >Esqueci minha senha</p>
+                    <p className='textoEsqueciCriar' onClick={() => navigate('/cadastro')}>Cadastrar-se</p>
+                    <p className='textoEsqueciCriar' >Fale Conosco</p>
                 </div>               
             </div>
         </div>

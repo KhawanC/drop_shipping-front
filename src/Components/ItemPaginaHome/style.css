@@ -4,8 +4,32 @@
 
     width: 14em;
     height: 18em;
-
     padding: 5px;
+    margin-top: 25px;
+
+    border: 1px solid #fffff53f;
+    border-radius: 25px;
+
+    transition: 150ms;
+    -webkit-transition: 150ms;
+    -moz-transition: 150ms;
+    -ms-transition: 150ms;
+    -o-transition: 150ms;
+}
+
+.containerItenPaginaHome:hover {
+    background-color: #fffff53f;
+
+    border: 0;
+    border-radius: 25px;
+
+    transform: translate(0, -15px);
+    -webkit-transform: translate(0, -15px);
+    -moz-transform: translate(0, -15px);
+    -ms-transform: translate(0, -15px);
+    -o-transform: translate(0, -15px);
+
+    cursor: pointer;
 }
 
 .boxImagemItemPaginaHome {
