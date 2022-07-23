@@ -7,9 +7,6 @@
     padding: 5px;
     margin-top: 25px;
 
-    border: 1px solid #fffff53f;
-    border-radius: 25px;
-
     transition: 150ms;
     -webkit-transition: 150ms;
     -moz-transition: 150ms;
@@ -64,12 +61,12 @@
     color: white;
 
     font-weight: 600;
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .precoItemPaginaHome {
     color: white;
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
 }

@@ -5,7 +5,7 @@ export const LoadingScreen = () => {
     return(
         <div className='boxModal'>
             <div className='boxMenorModal'>
-                <div class="lds-ripple"><div></div><div></div></div>
+                <div className="lds-ripple"><div></div><div></div></div>
                 <p className='tituloLoading'>Carregando...</p>
             </div>
         </div>
