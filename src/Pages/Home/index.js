@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './homeCss.css'
 import { AiOutlineHeart, AiOutlineBars} from 'react-icons/ai'
 import { MdOutlineNotifications } from 'react-icons/md';
@@ -9,6 +9,7 @@ import { IconeCategoria } from '../../Components/IconeCategoria';
 import { LoadingScreen } from '../../Components/LoadingScreen';
 import { SideBar } from '../../Components/SideBar';
 import { ItemPaginaHome } from '../../Components/ItemPaginaHome';
+import { motion } from 'framer-motion'
 
 export const Home = (props) => {
 
@@ -25,8 +26,22 @@ export const Home = (props) => {
         setSideBarOpen(false)
     }
 
+    useEffect(() => {
+        if(localStorage.getItem("token") !== null && localStorage.getItem("token") !== undefined) {
+            setLoggado(true)
+        } else {
+            setLoggado(false)
+        }
+    }, [])
+
     return(
-        <div className='containerHome'>
+        <motion.div 
+            className='containerHome'
+
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0, transition: {duration: 0.1}}}
+        >
             <div className='homeHeader'>
                 <AiOutlineBars
                     className='iconSideBar'
@@ -94,6 +109,6 @@ export const Home = (props) => {
             </div>
             {isLoading ? <LoadingScreen/> : <div></div>}
             {isSideBarOpen ? <SideBar loggado={isLoggado} handleClose={closeHandle} navegar={navegarCadastro}/> : <div></div>}
-        </div>
+        </motion.div>
     );
 };

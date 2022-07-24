@@ -1,12 +1,10 @@
 import React from 'react'
 import './style.css'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { BsArrowLeft } from "react-icons/bs";
-import { useNavigate } from 'react-router-dom';
 
 export const PaginaItem = (props) => {
-
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     const location = useLocation();
 
     return(

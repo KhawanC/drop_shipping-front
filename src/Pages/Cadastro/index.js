@@ -4,6 +4,9 @@ import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { LoadingScreen } from '../../Components/LoadingScreen';
 import ReactInputMask from 'react-input-mask';
+import { PopupMessageError } from '../../Components/PopupMessageError';
+import { api } from '../../Api/api';
+import { motion } from 'framer-motion'
 
 export const Cadastro = (props) => {
     const [nome, setNome] = useState('')
@@ -12,29 +15,72 @@ export const Cadastro = (props) => {
     const [nascimento, setNascimneto] = useState()
     const [cpf, setCpf] = useState('')
     const [senha, setSenha] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
+    const [isPopupError, setPopupError] = useState(false)
     const [confirmarSenha, setConfirmarSenha] = useState('')
     const [isLoading, setLoading] = useState(false)
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     function enviarFormulario() {
         setLoading(true)
         setTimeout(function() {
             if(nome === '' || email === '' || telefone === '' || nascimento === '' ||
                 cpf === '' || senha === '' || confirmarSenha === '') {
-                    console.log('um dos campos está vazio')
                     setLoading(false)
+                    setErrorMessage(e => 'Um dos campos está vazio!')
+                    ativarPopupError()
             } else if(nome.match(/\d+/g)) {
-                console.log('seu nome contem numeros')
                 setLoading(false)
+                setErrorMessage(e => 'Seu nome não pode conter números!')
+                ativarPopupError()
             } else if(senha !== confirmarSenha) {
-                console.log('suas senhas nao coincidem')
                 setLoading(false)
-            }  
+                setErrorMessage(e => 'Suas senhas não coincidem!')
+                ativarPopupError()
+            }  else {
+                let aleatNum = Math.floor(Math.random()*9000000) + 1000000;
+                enviarEmail(email, aleatNum)
+            }
         }, 800)
     }
 
+    const enviarEmail = async(emailUsuario, codigo) => {
+        try {
+            const res = await api.post('email', {
+                "destinatario": emailUsuario,
+                "codigo": codigo
+            })
+            console.log(res)
+            setLoading(false)
+            navigate('/cadastro/confirmacao', {state:{
+                nome: nome,
+                email: email,
+                telefone: telefone,
+                nascimento: nascimento,
+                cpf: cpf,
+                senha: senha,
+                codigo: codigo
+            }})
+        } catch (error) {
+            setLoading(false)
+            console.log(error)
+        }
+    }
+
+    function ativarPopupError() {
+        setPopupError(true)
+        setTimeout(function() {
+            setPopupError(false)
+        }, 5000)
+    }
+
     return(
-        <div className='containerCadastro'>
+        <motion.div 
+            className='containerCadastro'
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0, transition: {duration: 0.1}}}
+        >
             <div className='headerCadastro'>
                 <BsArrowLeft className='botaoVoltar' onClick={() => navigate(-1)}/>
             </div>
@@ -68,7 +114,8 @@ export const Cadastro = (props) => {
                 />
                 
                 <div className='containerDuploInput'>
-                    <input placeholder='Data de nascimento'
+                    <input
+                        placeholder='Data de nascimento'
                         type='date'
                         value={nascimento}
                         onChange={e => setNascimneto(v => e.target.value)}
@@ -99,6 +146,7 @@ export const Cadastro = (props) => {
                 <button id='botaoCadastroFormulario' onClick={enviarFormulario}>Enviar</button>
             </div>
             {isLoading ? <LoadingScreen/> : <div></div>}
-        </div>
+            {isPopupError ? <PopupMessageError mensagem={errorMessage}/> : <div></div>}
+        </motion.div>
     );
 };

@@ -1,0 +1,25 @@
+#containerCadastroEndereco {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100vw;
+    height: 100vh;
+
+    padding: 20px;
+
+    overflow-y: hidden;
+}
+
+#styleBigTextoEndereco {
+    color: white;
+
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.containerButtonCadastroEndereco {
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 6em;
+}

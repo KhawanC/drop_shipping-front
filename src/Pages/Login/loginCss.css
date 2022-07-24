@@ -3,6 +3,8 @@
     max-width: 100vh;
     
     padding: 20px;
+
+    overflow-y: hidden;
 }
 
 .boxVoltar {

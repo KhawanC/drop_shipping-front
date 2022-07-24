@@ -1,0 +1,86 @@
+#containerConfirmacaoEmail {
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: hidden;
+}
+
+#boxTextoBig {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 12em;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.textoConfirmacaoEmail {
+    color: white;
+}
+
+#textoMaiorConfirmacaoEmail {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#textoMenorConfirmacaoEmail {
+    font-size: 13px;
+
+    margin-top: 1.5em;
+}
+
+.inputNumberConfirmacao {
+    color: white;
+}
+
+#boxInputConfirmacao {
+    display: flex;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 7em;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#boxReenviarCancelar {
+    display: flex;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 3em;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+.styleReenviarCancelar {
+    color: white;
+
+    font-size: 13px;
+}
+
+.styleReenviarCancelar:hover {
+    color: #393939;
+
+    cursor: pointer;
+}
+
+#boxInputConfirmarCodigoCadastro {
+    display: flex;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 10em;
+
+    justify-content: center;
+    align-items: center;
+}
