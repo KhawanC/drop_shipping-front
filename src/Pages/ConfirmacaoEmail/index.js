@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 export const ConfirmacaoEmail = (props) => {
     const [codigo, setCodigo] = useState();
     const [isLoading, setLoading] = useState(false);
-    const [dados, setDados] = useState()
+    const [dados, setDados] = useState();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -17,7 +17,6 @@ export const ConfirmacaoEmail = (props) => {
             navigate("/")
         } else {
             setDados(e => location.state)
-            console.log(dados)
         }
     }, [])
 

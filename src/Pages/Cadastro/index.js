@@ -50,7 +50,6 @@ export const Cadastro = (props) => {
                 "destinatario": emailUsuario,
                 "codigo": codigo
             })
-            console.log(res)
             setLoading(false)
             navigate('/cadastro/confirmacao', {state:{
                 nome: nome,
@@ -63,7 +62,7 @@ export const Cadastro = (props) => {
             }})
         } catch (error) {
             setLoading(false)
-            console.log(error)
+            console.log(error.response)
         }
     }
 

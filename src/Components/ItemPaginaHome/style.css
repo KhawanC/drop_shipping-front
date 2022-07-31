@@ -8,10 +8,6 @@
     margin-top: 25px;
 
     transition: 150ms;
-    -webkit-transition: 150ms;
-    -moz-transition: 150ms;
-    -ms-transition: 150ms;
-    -o-transition: 150ms;
 }
 
 .containerItenPaginaHome:hover {
@@ -21,10 +17,6 @@
     border-radius: 25px;
 
     transform: translate(0, -15px);
-    -webkit-transform: translate(0, -15px);
-    -moz-transform: translate(0, -15px);
-    -ms-transform: translate(0, -15px);
-    -o-transform: translate(0, -15px);
 
     cursor: pointer;
 }
@@ -55,6 +47,8 @@
 .imagemItemPaginaHome {
     width: 10em;
     height: 10em;
+
+    border-radius: 25px;
 }
 
 .tituloItemPaginaHome {
@@ -62,11 +56,20 @@
 
     font-weight: 600;
     font-size: 15px;
+
+    text-align: center;
 }
 
 .precoItemPaginaHome {
     color: white;
 
-    font-size: 12px;
+    
+    font-size: 16px;
     font-weight: 700;
+}
+
+.precoItemPaginaHomeTraco {
+    color: #7a7a7a;
+
+    text-decoration: line-through;
 }

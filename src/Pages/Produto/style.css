@@ -1,0 +1,191 @@
+#containerPaginaProduto {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    min-height: 100vh;
+    max-height: max-content;
+}
+
+#separadorPaginaProduto {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    margin-right: 2.5em;
+    margin-left: 2.5em;
+}
+
+#boxHeaderPaginProduto {
+    background-color: #35383f;
+
+    width: 100%;
+    height: 45em;
+
+    padding: 20px
+}
+
+#boxBotaoVoltarPaginaProduto {
+    width: 100%;
+    height: fit-content;
+}
+
+#boxSliderPaginaProduto {
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 2em;
+}
+
+#boxMainInfoPaginaProduto {
+    width: 100%;
+    height: fit-content;
+
+    padding: 20px;
+}
+
+#boxTituloCoracaoPaginaProduto {
+    display: flex;
+
+    width: 100%;
+    height: fit-content;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#boxTituloPaginaProduto {
+    width: 70%;
+    height: fit-content;
+}
+
+#tituloPaginaProduto {
+    color: white;
+
+    font-size: 21px;
+    font-weight: 500;
+}
+
+#boxCoracaoPaginaProduto {
+    display: flex;
+
+    width: 30%;
+    height: 100%;
+
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#coracaoIconePaginaProduto {
+    transition: 200ms;
+}
+
+#coracaoIconePaginaProduto:hover {
+    transform: translateY(-5px);
+
+    cursor: pointer;
+}
+
+#boxDescricaoPaginaProduto {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: fit-content;
+}
+
+.subtituloStylePaginaProduto {
+    color: white;
+
+    font-size: 21px;
+}
+
+.descricaoStylePaginaProduto {
+    color: #bfbfc1;
+
+    font-size: 19px;
+}
+
+#boxDescricao2PaginaProduto {
+    width: 100%;
+    height: 20em;
+
+    margin-top: 2.5em;
+
+    overflow-y: scroll;
+}
+
+#boxTabelaPrecoFreteComprarPaginaProduto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 3.5em;
+}
+
+#boxPrecoComprarPaginaProduto {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: fit-content;
+
+    justify-content: flex-start;
+}
+
+#precoStylePaginaProduto {
+    color: white;
+
+    font-size: 16px;
+}
+
+#precoRiscadoStylePaginaProduto {
+    color: #77786f;
+    text-decoration: line-through;
+}
+
+#precoNovoStylePaginaProduto {
+    color: #73c300;
+
+    font-size: 25px;
+}
+
+#boxBotaoComprarPaginaProduto {
+    display: flex;
+
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#botaoComprarPaginaProduto {
+    background-color: #73c300;
+    color: white;
+
+    padding: 10px;
+
+    border: 0;
+    border-radius: 25px;
+
+    transition: 200ms;
+}
+
+#botaoComprarPaginaProduto:hover {
+    background-color: #35383f;
+
+    cursor: pointer;
+}
+
+#boxProdutosRelacionadosPaginaProduto {
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 5em;
+}
+
+#tituloStyleRelacionadosPaginaProduto {
+    color: white;
+
+    font-size: 23px;
+}

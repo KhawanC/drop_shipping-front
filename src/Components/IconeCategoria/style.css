@@ -3,7 +3,7 @@
     flex-direction: column;
 
     width: 7em;
-    height: 7em;
+    height: 8.5em;
     
     margin: 9px;
 
@@ -44,6 +44,7 @@
 .textCategoria {
     color: white;
 
+    text-align: center;
     font-size: 12px;
     letter-spacing: 0.5px;
 }

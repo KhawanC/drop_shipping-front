@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
-import { useNavigate } from 'react-router-dom';
 
 export const ItemPaginaHome = (props) => {
-    let navigate = useNavigate();
-
+    const [isMouseEmCima, setMouseEmCima] = useState(false)
+    
     return(
-        <div className='containerItenPaginaHome' onClick={() => navigate('/produto', {
-            state:{
-                nome:'Camisa do flamengo'
-            }
-        })}>
+        <div className='containerItenPaginaHome' onClick={props.handleClick} onMouseEnter={() => setMouseEmCima(true)} onMouseLeave={() => setMouseEmCima(false)}>
             <div className='boxImagemItemPaginaHome'>
-                <img className='imagemItemPaginaHome' src='https://flamengo.vteximg.com.br/arquivos/ids/164057-1000-1000/HA8342-1.png?v=637807273095830000'/>
+                <img className='imagemItemPaginaHome' src={(props.dadosProduto.listaImagens.slot_1).replace('{', '').replace('}', '').replace('"', '').replace('"', '')}/>
             </div>
             <div className='boxDescPrecoItemPaginaHome'>
-                <p className='tituloItemPaginaHome'>Nome do Item</p>
-                <p className='precoItemPaginaHome'>R$250,00</p>
+                {isMouseEmCima ? <div>
+                        <p className='tituloItemPaginaHome'>{props.dadosProduto.nome}</p>
+                    </div> : <div>
+                        <p className='precoItemPaginaHome precoItemPaginaHomeTraco'>R${props.dadosProduto.preco}</p>
+                        <p className='precoItemPaginaHome'>R${(props.dadosProduto.preco-((props.dadosProduto.preco*props.dadosProduto.prcntDesconto)/100)).toFixed(2)}</p>
+                    </div>}
             </div>
         </div>
     );

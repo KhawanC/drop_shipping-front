@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './loginCss.css'
+import './style.css'
 import { BsArrowLeft, BsBrightnessAltHighFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'

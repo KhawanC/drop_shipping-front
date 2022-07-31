@@ -30,7 +30,6 @@ export const Endereco = (props) => {
         if(location.state === "" || location.state === null || location.state === undefined) {
             navigate('/')
         }
-        console.log(location.state)
     }, [])
 
     function clickConfirmar() {

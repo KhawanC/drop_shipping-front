@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './homeCss.css'
+import './style.css'
 import { AiOutlineHeart, AiOutlineBars} from 'react-icons/ai'
 import { MdOutlineNotifications } from 'react-icons/md';
 import { Box, Carousel, Image, TextInput } from 'grommet';
@@ -10,13 +10,16 @@ import { LoadingScreen } from '../../Components/LoadingScreen';
 import { SideBar } from '../../Components/SideBar';
 import { ItemPaginaHome } from '../../Components/ItemPaginaHome';
 import { motion } from 'framer-motion'
+import { api } from '../../Api/api';
 
 export const Home = (props) => {
 
     const [isLoggado, setLoggado] = useState(false);
     const [isLoading, setLoading] = useState(false);
     const [isSideBarOpen, setSideBarOpen] = useState(false);
-    let navigate = useNavigate();
+    const [dadosCategoria, setDadosCategoria] = useState([]);
+    const [dadosProduto, setDadosProduto] = useState([]);
+    const navigate = useNavigate();
 
     function navegarCadastro() {
         navigate('/login')
@@ -26,7 +29,30 @@ export const Home = (props) => {
         setSideBarOpen(false)
     }
 
+    function produtoHandle(dados) {
+        navigate(`/produto/${dados.link}`, {
+            state: dados
+        })
+    }
+
+    function categoriaHandle(dados) {
+        navigate(`/categoria/${dados.link}`, {
+            state: dados
+        })
+    }
+
+    const carregarDados = async () => {
+        try {
+            const res = await api.get('/categoria')
+            const res2 = await api.get('/produto')
+            setDadosCategoria(e => res.data)
+            setDadosProduto(e => res2.data)
+        } catch (error) {
+        }
+    }
+
     useEffect(() => {
+        carregarDados()
         if(localStorage.getItem("token") !== null && localStorage.getItem("token") !== undefined) {
             setLoggado(true)
         } else {
@@ -55,7 +81,9 @@ export const Home = (props) => {
 
                     <AiOutlineHeart
                         className='iconNotiFav'
-                        size={23}/>
+                        size={23}
+                        color='red'
+                    />
                 </div>
             </div>
             <div className='boxSearch'>
@@ -83,29 +111,23 @@ export const Home = (props) => {
                 <Image fit="cover" src="https://www.viajandoparaacalabria.com/home/wp-content/uploads/2017/05/banner-oferta.jpg" style={{borderRadius: '35px'}}/>
                 </Carousel>
             </Box>
+            {dadosCategoria.length === 0 ? <div id='boxLoadingEmptyHome'>
+                        <div className='loader'></div>
+                    </div> : <p>Não vazio</p>}
             <div className='boxCategorias '>
-                <IconeCategoria/>
-                <IconeCategoria/>
-                <IconeCategoria/>
-                <IconeCategoria/>
-                <IconeCategoria/>
-                <IconeCategoria/>
-                <IconeCategoria/>
-                <IconeCategoria/>
+                
+                {dadosCategoria.map(dados => {
+                    return <IconeCategoria dadosCategoria={dados} key={dados.id} handleClick={() => categoriaHandle(dados)}/>
+                })}
             </div>
             <div className='boxTextOfertas2'>
                 <p className='boxOfertaTituloMaior'>Mais Populares</p>
-                <p className='boxOfertaTituloMenor'>Ver todas</p>
+                <p className='boxOfertaTituloMenor'>Ver todos</p>
             </div>
             <div className='boxDisplayItensHome'>
-                <ItemPaginaHome/>
-                <ItemPaginaHome/>
-                <ItemPaginaHome/>
-                <ItemPaginaHome/>
-                <ItemPaginaHome/>
-                <ItemPaginaHome/>
-                <ItemPaginaHome/>
-                <ItemPaginaHome/>
+                {dadosProduto.map(dados => {
+                    return <ItemPaginaHome dadosProduto={dados} key={dados.id} handleClick={() => produtoHandle(dados)}/>
+                })}
             </div>
             {isLoading ? <LoadingScreen/> : <div></div>}
             {isSideBarOpen ? <SideBar loggado={isLoggado} handleClose={closeHandle} navegar={navegarCadastro}/> : <div></div>}
