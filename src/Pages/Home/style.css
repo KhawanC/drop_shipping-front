@@ -35,13 +35,21 @@
 }
 
 .boxNotiFav {
-    display: flex;
-
-    gap: 25px;
+  display: flex;
 }
 
 .iconNotiFav {
-    color: white;
+  color: white;
+
+  margin-left: 35px;
+
+  transition: 200ms;
+}
+
+.iconNotiFav:hover {
+  cursor: pointer;
+
+  transform: translateY(-5px);
 }
 
 .boxSearch {

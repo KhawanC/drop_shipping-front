@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.css'
-import { AiOutlineHeart, AiOutlineBars} from 'react-icons/ai'
+import { AiOutlineHeart, AiOutlineBars, AiOutlineShoppingCart} from 'react-icons/ai'
 import { MdOutlineNotifications } from 'react-icons/md';
 import { Box, Carousel, Image, TextInput } from 'grommet';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { SideBar } from '../../Components/SideBar';
 import { ItemPaginaHome } from '../../Components/ItemPaginaHome';
 import { motion } from 'framer-motion'
 import { api } from '../../Api/api';
+import imagemBanner from '../../Source/banner_temp.png'
 
 export const Home = (props) => {
 
@@ -75,14 +76,22 @@ export const Home = (props) => {
                     onClick={() => setSideBarOpen(true)}
                 />
                 <div className='boxNotiFav'>
+                    <AiOutlineShoppingCart
+                        className='iconNotiFav'
+                        size={23}
+                        onClick={() => navigate('/carrinho')}
+                    /> 
+
                     <MdOutlineNotifications
                         className='iconNotiFav'
-                        size={23}/>
+                        size={23}
+                    />
 
                     <AiOutlineHeart
                         className='iconNotiFav'
                         size={23}
                         color='red'
+                        onClick={() => navigate('/favoritos')}
                     />
                 </div>
             </div>
@@ -101,19 +110,19 @@ export const Home = (props) => {
                 />
             </div>
             <div className='boxTextOfertas'>
-                <p className='boxOfertaTituloMaior'>Ofertas Especiais</p>
+                <p className='boxOfertaTituloMaior'>Ofertas Especiaiss</p>
                 <p className='boxOfertaTituloMenor'>Ver todas</p>
             </div>
             <Box height="small" width="medium" overflow="hidden" margin={'30px 0 0 0'}>
                 <Carousel fill play={3500}>
-                <Image fit="cover" src="https://www.viajandoparaacalabria.com/home/wp-content/uploads/2017/05/banner-oferta.jpg" style={{borderRadius: '35px'}}/>
-                <Image fit="cover" src="https://www.viajandoparaacalabria.com/home/wp-content/uploads/2017/05/banner-oferta.jpg" style={{borderRadius: '35px'}}/>
-                <Image fit="cover" src="https://www.viajandoparaacalabria.com/home/wp-content/uploads/2017/05/banner-oferta.jpg" style={{borderRadius: '35px'}}/>
+                <Image fit="cover" src={imagemBanner} style={{borderRadius: '35px'}}/>
+                <Image fit="cover" src={imagemBanner} style={{borderRadius: '35px'}}/>
+                <Image fit="cover" src={imagemBanner} style={{borderRadius: '35px'}}/>
                 </Carousel>
             </Box>
             {dadosCategoria.length === 0 ? <div id='boxLoadingEmptyHome'>
                         <div className='loader'></div>
-                    </div> : <p>Não vazio</p>}
+                    </div> : ''}
             <div className='boxCategorias '>
                 
                 {dadosCategoria.map(dados => {

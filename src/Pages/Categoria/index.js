@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { BsArrowLeft } from "react-icons/bs";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { api } from '../../Api/api';
+import { ProdutoCard } from '../../Components/ProdutoCard';
 
 export const Categoria = (props) => {
     const [isLoading, setLoading] = useState(true);
@@ -38,6 +39,12 @@ export const Categoria = (props) => {
         }
     }
 
+    function produtoHandle(dados) {
+        navigate(`/produto/${dados.link}`, {
+            state: dados
+        })
+    }
+
     return(
         <motion.div
             initial={{opacity: 0}}
@@ -59,29 +66,8 @@ export const Categoria = (props) => {
                     </div>
                     <div id='containerProdutosPaginaCategoria'>
                         {produtos.map((dados) => {
-                            let imagemObjeto = dados.listaImagens.slot_1.replace('{', '').replace('}', '').replace('"', "")
                             return(
-                            <div id='boxProdutosPaginaCategoria' key={dados.id}>
-                                <div id='boxImagemProdutoCategoria'>
-                                    <img
-                                        id='imagemProdutoCategoria'
-                                        src={imagemObjeto}
-                                    />
-                                </div>
-                                <div id='boxTituloDescricaoCategoria'>
-                                    <div id='boxTitulo2PaginaCategoria'>
-                                        <p id='titulo2PaginaCategoria'>{dados.nome}</p>
-                                    </div>
-                                    {dados.prcntDesconto > 0 ? 
-                                    <div id='boxDescricao2PaginaCategoria'>
-                                        <p id='precoAntigoPaginaCategoria'>{dados.preco}</p>
-                                        <p id='precoNovoPaginaCategoria'>{(dados.preco-((dados.preco*dados.prcntDesconto)/100)).toFixed(2)} - <span>{dados.prcntDesconto}% OFF</span></p>
-                                    </div> :
-                                    <div id='boxDescricao2PaginaCategoria'> 
-                                        <p></p>
-                                    </div>}
-                                </div>
-                            </div>
+                            <ProdutoCard key={dados} dados={dados} handleClick={() => produtoHandle(dados)}/>
                         )})}
                     </div>
                 </div>}

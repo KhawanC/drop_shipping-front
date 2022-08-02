@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './sideBar.css'
+import './style.css'
 import { AiOutlineClose, AiOutlineUserAdd, AiOutlineUser, AiOutlineShoppingCart, AiOutlinePhone, AiOutlineUserDelete } from 'react-icons/ai'
 import { LoadingScreen } from '../LoadingScreen';
 
@@ -27,10 +27,10 @@ export const SideBar = (props) => {
                     />
                 </div>
                 {props.loggado ? <div className='boxNavigation'>
-                    <span className='textBoxNavigation'><AiOutlineUser size={28}/> Conta</span>
-                    <span className='textBoxNavigation'><AiOutlineShoppingCart size={28}/> Carrinho</span>
-                    <span className='textBoxNavigation' onClick={desconectarUsuario}><AiOutlineUserDelete size={28}/> Desconectar</span>
-                    <span className='textBoxNavigation'><AiOutlinePhone size={28}/> Fale Conosco</span>
+                    <span className='textBoxNavigation'><AiOutlineUser className='iconeBoxNavigation' size={28}/> Conta</span>
+                    <span className='textBoxNavigation'><AiOutlineShoppingCart className='iconeBoxNavigation' size={28}/> Carrinho</span>
+                    <span className='textBoxNavigation' onClick={desconectarUsuario}><AiOutlineUserDelete className='iconeBoxNavigation' size={28}/> Desconectar</span>
+                    <span className='textBoxNavigation'><AiOutlinePhone className='iconeBoxNavigation' size={28}/> Fale Conosco</span>
                 </div> : <div className='boxNavigation'>
                     <span className='textBoxNavigation' onClick={props.navegar}><AiOutlineUserAdd size={28}/> Registrar / Entrar</span>
                 </div>}

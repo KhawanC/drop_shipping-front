@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css'
 import { FaTshirt } from 'react-icons/fa'
+import { FiSmartphone } from 'react-icons/fi'
 import { BiBlock } from 'react-icons/bi'
 import { BsHouseDoor } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
@@ -14,15 +15,23 @@ export const IconeCategoria = (props) => {
             case 'FaTshirt':
                 return <FaTshirt
                 color='white'
-                size={25}/> ;
+                size={25}
+                /> ;
             case 'BsHouseDoor':
                 return <BsHouseDoor
                 color='white'
-                size={25}/> ;
+                size={25}
+                /> ;
+            case 'FiSmartphone':
+                return <FiSmartphone
+                color='white'
+                size={25}
+                />
             default:
                 return <BiBlock
                 color='white'
-                size={25}/>;
+                size={25}
+                />;
         }
     }
 

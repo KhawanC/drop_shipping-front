@@ -4,13 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import tokenReducer from './Services/Token';
+import favoritosReducer from './Services/Favoritos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = configureStore({
   reducer: {
-    token: tokenReducer
+    favoritos: favoritosReducer
   }
 })
 
