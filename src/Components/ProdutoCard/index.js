@@ -3,7 +3,7 @@ import './style.css';
 
 export const ProdutoCard = (props) => {
 
-    const imagemObjeto = props.dados.listaImagens.slot_1.replace('{', '').replace('}', '').replace('"', "");
+    const imagemObjeto = props.dados.listaImagens.slot[0];
 
     return(
         <div id='boxProdutosPaginaCategoria' key={props.dados.id} onClick={props.handleClick}>

@@ -2,18 +2,27 @@ import React, { useEffect, useState } from 'react'
 import './style.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BsArrowLeft } from "react-icons/bs";
-import { Box, Carousel, Image, TextInput } from 'grommet';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { useSelector, useDispatch } from 'react-redux';
 import { adicionarFavoritos, removerFavoritos } from '../../Services/Favoritos';
+import { adicionarCarrinho, removerCarrinho } from '../../Services/Carrinho';
+import { CarrosselSwiperProduto } from '../../Components/CarrosselSwiperProduto';
+import { motion } from 'framer-motion';
+import { ModalAvisos } from '../../Components/ModalAvisos';
+import { ModalAvisosV2 } from '../../Components/ModalAvisosV2';
+import { Console } from 'grommet-icons';
 
 export const Produto = (props) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isProdutoFavorito, setProdutoFavorito] = useState(false);
-    const [imagens, setImagens] = useState([]);
+    const [isItemCarrinho, setItemCarrinho] = useState(false);
+    const [isPopup, setPopup] = useState(false);
+    const [isPopup2, setPopup2] = useState(false);
+    const [popupMessage, setPopupMessage] = useState('');
     const [texto, setTexto] = useState([]);
     const listaFavoritos = useSelector((state) => state.favoritos.value);
+    const listaCarrinho = useSelector((state) => state.carrinho.value);
     const dispatch = useDispatch();
     const [dados, setDados] = useState({
         id: null,
@@ -24,28 +33,72 @@ export const Produto = (props) => {
     });
 
     useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
         setDados(location.state);
-        setImagens([location.state.listaImagens.slot_1.replace('{', '').replace('}', '').replace('"', '')]);
-        setTexto([location.state.listaTexto.slot_1.replace('{', '').replace('}', '').replace('"', '')]);
+        setTexto(location.state.listaTexto.slot);
         if(listaFavoritos.includes(location.state.id)) {
             setProdutoFavorito(true);
         }
+        console.log(listaCarrinho)
+        listaCarrinho.map(dadoObjeto => {
+            if(dadoObjeto.id === location.state.id) {
+                setItemCarrinho(true);
+            }
+        })
     }, [])
 
+    const verificarCarrinho = () => {
+        if(localStorage.getItem('token') === null ||
+           localStorage.getItem('token') === undefined ||
+           localStorage.getItem('token') === '') {
+            
+            setPopupMessage(e => 'Cadastre-se para adicionar itens ao carrinho!')
+            setPopup(true)
+        } else {
+            if(isItemCarrinho === true) {
+                setPopupMessage(e => 'Tem certeza que deseja remover esse item?')
+                setPopup2(true)
+            } else {
+                dispatch(adicionarCarrinho({
+                    id: dados.id,
+                    quantidade: 1
+                }))
+                setItemCarrinho(true)
+            }
+            
+        }
+    }
+
+    const clickModalCarrinho = () => {
+        setPopup(false)
+        setPopupMessage(e => '')   
+    }
+
+    const clickModalCancelar = () => {
+        setPopup2(false)
+        setPopupMessage(e => '')   
+    }
+
+    const clickModalConfirmar = () => {
+        setItemCarrinho(false)
+        dispatch(removerCarrinho(dados.id))
+        setPopup2(false)
+        setPopupMessage(e => '') 
+    }
+
     return(
-        <div id='containerPaginaProduto'>
+        <motion.div 
+            id='containerPaginaProduto'
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0, transition: {duration: 0.1}}}
+        >
             <div id='boxHeaderPaginProduto'>
                 <div id='boxBotaoVoltarPaginaProduto'>
                     <BsArrowLeft className='botaoVoltar' onClick={() => navigate(-1)}/>
                 </div>
                 <div id='boxSliderPaginaProduto'>
-                    <Carousel fill>
-                        {imagens.map((dados, index) => {
-                            return(
-                                <Image key={index} fit="cover" src={dados} style={{borderRadius: '35px', padding: '35px'}}/>
-                            )
-                        })}
-                    </Carousel>
+                    <CarrosselSwiperProduto imagens={location.state}/>
                 </div>
             </div>
             <div id='boxMainInfoPaginaProduto'>
@@ -77,7 +130,14 @@ export const Produto = (props) => {
                             <p id='precoNovoStylePaginaProduto'>R${(dados.preco-((dados.preco*dados.prcntDesconto)/100)).toFixed(2)}</p>
                         </div>
                         <div id='boxBotaoComprarPaginaProduto'>
-                            <button id='botaoComprarPaginaProduto'>Adicionar ao Carrinho</button>
+                            {isItemCarrinho ? 
+                            <>
+                                <button id='botaoRemoverCarrinhoPaginaProduto' onClick={() => verificarCarrinho()} >Remover do Carrinho</button>
+                            </> :
+                            <>
+                                <button id='botaoComprarPaginaProduto' onClick={() => verificarCarrinho()} >Adicionar ao Carrinho</button>
+                            </>}
+                            
                         </div>
                 </div>
                 <hr id='separadorPaginaProduto'/>
@@ -91,6 +151,18 @@ export const Produto = (props) => {
                     <p id='tituloStyleRelacionadosPaginaProduto'>Talvez você goste:</p>
                 </div>
             </div>
-        </div>
+            {isPopup ? 
+            <>
+                <ModalAvisos mensagem={popupMessage} handleClick={() => clickModalCarrinho()}/>
+            </> : 
+            <>
+            </>}
+            {isPopup2 ? 
+            <>
+                <ModalAvisosV2 mensagem={popupMessage} handleClick1={() => clickModalCancelar()} handleClick2={() => clickModalConfirmar()}/>
+            </> : 
+            <>
+            </>}
+        </motion.div>
     );
 };

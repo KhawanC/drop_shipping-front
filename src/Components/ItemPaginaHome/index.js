@@ -7,7 +7,7 @@ export const ItemPaginaHome = (props) => {
     return(
         <div className='containerItenPaginaHome' onClick={props.handleClick} onMouseEnter={() => setMouseEmCima(true)} onMouseLeave={() => setMouseEmCima(false)}>
             <div className='boxImagemItemPaginaHome'>
-                <img className='imagemItemPaginaHome' src={(props.dadosProduto.listaImagens.slot_1).replace('{', '').replace('}', '').replace('"', '').replace('"', '')}/>
+                <img className='imagemItemPaginaHome' src={props.dadosProduto.listaImagens.slot[0]}/>
             </div>
             <div className='boxDescPrecoItemPaginaHome'>
                 {isMouseEmCima ? <div>

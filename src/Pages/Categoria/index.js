@@ -49,7 +49,7 @@ export const Categoria = (props) => {
         <motion.div
             initial={{opacity: 0}}
             animate={{opacity: 1}}
-            exit={{opacity: 0, transition: {duration: 0.1}}}
+            exit={{opacity: 0, transition: {duration: 0.3}}}
             className='containerCategoria'
         >
             <div className='headerPaginaItem'>
@@ -65,9 +65,9 @@ export const Categoria = (props) => {
                         <p id='tituloPaginaCategoria'>{dados.nome}</p>
                     </div>
                     <div id='containerProdutosPaginaCategoria'>
-                        {produtos.map((dados) => {
+                        {produtos.map((dados, index) => {
                             return(
-                            <ProdutoCard key={dados} dados={dados} handleClick={() => produtoHandle(dados)}/>
+                            <ProdutoCard key={index} dados={dados} handleClick={() => produtoHandle(dados)}/>
                         )})}
                     </div>
                 </div>}

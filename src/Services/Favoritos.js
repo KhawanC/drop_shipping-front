@@ -8,7 +8,7 @@ export const favoritosSlice = createSlice({
             state.value.push(action.payload)
         },
         removerFavoritos: (state, action) => {
-            state.value = state.value.filter((itens) => itens !== action.payload)
+            state.value = state.value.filter((item) => item !== action.payload)
         },
     },
 });
