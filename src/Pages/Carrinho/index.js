@@ -1,13 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom';
 import { BsArrowLeft } from "react-icons/bs";
+import { useSelector, useDispatch } from 'react-redux';
 import { ItemPaginaCarrinho } from '../../Components/ItemPaginaCarrinho';
 
 export const Carrinho = (props) => {
-
+    const listaCarrinho = useSelector((state) => state.carrinho.value);
+    const [listaValores, setListaValores] = useState([]);
+    const [valorTotal, setValorTotal] = useState(0.0);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        let tempValor = 0;
+        listaValores.map(dados => {
+            tempValor += parseFloat(dados.valor)
+        })
+        setValorTotal(tempValor)
+    }, [listaValores]);
+
+    const forceAtualizarValor = () => {
+        let tempValor = 0;
+        listaValores.map(dados => {
+            tempValor += parseFloat(dados.valor)
+        })
+        setValorTotal(tempValor)
+    };
+
+    const atualizarValores = (index, valor) => {
+        let isPresent = false;
+        listaValores.map(dados => {
+            if(dados.id === index) {
+                isPresent = true
+            };
+        });
+        if(isPresent === false) {
+            setListaValores(e => [...e, {id: index, valor: valor}])
+        } else {
+            listaValores.map(dados => {
+                if(dados.id === index) {
+                    dados.valor = valor
+                };
+            });
+            forceAtualizarValor()
+        }
+    }
 
     return(
         <motion.div 
@@ -24,10 +62,17 @@ export const Carrinho = (props) => {
                     <p id='tituloStylePaginaCarrinho'>Carrinho</p>
                 </div>
                 <div id='boxProdutosPaginaCarrinho'>
-                    <ItemPaginaCarrinho/>
+                    {listaCarrinho.map(dados => {
+                        return(
+                            <ItemPaginaCarrinho dados={dados} valorItem={e => atualizarValores(dados.id, e)}/>
+                        );
+                    })};
                 </div>
             </div>
             <div id='boxConcluirCompraPaginaCarrinho'>
+                <p id='textoPrecoStyleItemCarrinho'>Total: <span id='precoStyleItemCarrinho'>R${valorTotal}</span></p>
+                <p id='textoPrecoStyleItemCarrinho'>Frete: <span id='precoStyleItemCarrinho'>R$0.0</span></p>
+                <button id='buttonStylePaginaCarrinho'>Ir para o pagamento</button>
             </div>
         </motion.div>
     );

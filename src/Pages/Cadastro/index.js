@@ -62,7 +62,6 @@ export const Cadastro = (props) => {
             }})
         } catch (error) {
             setLoading(false)
-            console.log(error.response)
         }
     }
 

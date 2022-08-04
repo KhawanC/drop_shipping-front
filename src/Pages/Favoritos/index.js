@@ -24,7 +24,6 @@ export const Favoritos = (props) => {
             const res = await api.get(`/produto/${index}`)
             setProdutos(e => [...e, res.data])
         } catch(error) {
-            console.log(error.response)
         }
     }
 

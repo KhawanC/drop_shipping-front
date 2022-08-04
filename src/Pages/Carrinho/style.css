@@ -29,15 +29,103 @@
 
 #boxConcluirCompraPaginaCarrinho {
     background-color: #35383f;
+
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
     height: 15%;
+
+    justify-content: center;
+    align-items: center;
 
     border-radius: 65px 65px 0 0;
 }
 
+#boxQuantidadeTituloItemCarrinho {
+    display: flex;
+    flex-direction: column;
+
+    width: 60%;
+    height: 100%;
+}
+
+#boxTituloItemCarrinhoCarrinho {
+    display: flex;
+
+    width: 100%;
+    height: 40%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#tituloStyleProdutoCarrinho {
+    color: white;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#boxPrecoItemCarrinho {
+    display: flex;
+
+    width: 100%;
+    height: 25%;
+
+    align-items: center;
+}
+
+#textoPrecoStyleItemCarrinho {
+    color: white;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#precoStyleItemCarrinho {
+    color: #73c300;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#boxQuantidadeItemCarrinho {
+    display: flex;
+
+    width: 100%;
+    height: 35%;
+
+    justify-content: center;
+    align-items: center;
+}
+
 #boxProdutosPaginaCarrinho {
     width: 100%;
-    height: fit-content;
+    height: 90%;
 
-    margin-top: 3em;
+    overflow-y: scroll;
+}
+
+#buttonStylePaginaCarrinho {
+    background-color: #181a20;
+    color: white;
+
+    width: 45%;
+    height: 2.5em;
+
+    margin-top: 1.5em;
+
+    border: 0;
+    border-radius: 25px;
+
+    transition: 200ms;
+}
+
+#buttonStylePaginaCarrinho:hover {
+    background-color: white;
+    color: black;
+
+    cursor: pointer;
 }
