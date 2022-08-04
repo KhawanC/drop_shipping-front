@@ -10,7 +10,6 @@ import { CarrosselSwiperProduto } from '../../Components/CarrosselSwiperProduto'
 import { motion } from 'framer-motion';
 import { ModalAvisos } from '../../Components/ModalAvisos';
 import { ModalAvisosV2 } from '../../Components/ModalAvisosV2';
-import { Console } from 'grommet-icons';
 
 export const Produto = (props) => {
     const navigate = useNavigate();
