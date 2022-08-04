@@ -10,6 +10,7 @@ import { CarrosselSwiperProduto } from '../../Components/CarrosselSwiperProduto'
 import { motion } from 'framer-motion';
 import { ModalAvisos } from '../../Components/ModalAvisos';
 import { ModalAvisosV2 } from '../../Components/ModalAvisosV2';
+import { api } from '../../Api/api';
 
 export const Produto = (props) => {
     const navigate = useNavigate();
@@ -44,7 +45,18 @@ export const Produto = (props) => {
                 setItemCarrinho(true);
             }
         })
+        computarClique(location.state.id)
     }, [])
+
+    const computarClique = async(id) => {
+        try {
+            const res = await api.put('http://localhost:8081/dropshipping/produto/click', {
+                id: id
+            })
+        } catch (error) {
+            console.log(error.response)
+        }
+    }
 
     const verificarCarrinho = () => {
         if(localStorage.getItem('token') === null ||

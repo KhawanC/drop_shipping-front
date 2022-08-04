@@ -21,6 +21,7 @@ export const Categoria = (props) => {
 
     useEffect(() => {
         setDados(e => location.state)
+        computarClique(location.state.id)
     }, [])
 
     useEffect(() => {
@@ -42,6 +43,16 @@ export const Categoria = (props) => {
         navigate(`/produto/${dados.link}`, {
             state: dados
         })
+    }
+
+    const computarClique = async(id) => {
+        try {
+            const res = await api.put('http://localhost:8081/dropshipping/categoria/click', {
+                id: id
+            })
+        } catch (error) {
+            console.log(error.response)
+        }
     }
 
     return(
