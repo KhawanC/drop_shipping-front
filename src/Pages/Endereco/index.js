@@ -60,6 +60,7 @@ export const Endereco = (props) => {
     const cadastrarUsuario = async() => {
         try {
             let idade = calcularIdade(location.state.nascimento)
+            console.log(location.state.cpf)
             const res = await api.post("/usuario/cadastrarUsuario", {
                 nomeCompleto: location.state.nome,
                 idade: idade,
@@ -75,14 +76,17 @@ export const Endereco = (props) => {
                 numero: numero,
                 complemento: complemento
             })
+            console.log(res)
             const res2 = await api.post("/autenticacao", {
                 email: location.state.email,
                 password: location.state.senha
             })
+            console.log(res2)
             localStorage.setItem("token", res2.data.tokenAuth)
             setLoading(false)
             setCompleto(true)
         } catch (error) {
+            console.log(error.response)
             setLoading(false)
         }
     }

@@ -12,6 +12,8 @@
 #boxTituloPaginaCategoria {
     width: 100%;
     height: fit-content;
+
+    margin-top: 2em;
 }
 
 #tituloPaginaCategoria {

@@ -21,11 +21,17 @@ export const Favoritos = (props) => {
 
     const atualizarFavoritos = async(index) => {
         try {
-            const res = await api.get(`/produto/id/${index}`)
+            const res = await api.get(`/produto/${index}`)
             setProdutos(e => [...e, res.data])
         } catch(error) {
             console.log(error.response)
         }
+    }
+
+    const clickProduto = (dados) => {
+        navigate(`/produto/${dados.link}`, {
+            state: dados
+        })
     }
 
     return(
@@ -44,7 +50,7 @@ export const Favoritos = (props) => {
             <div id='containerProdutosPaginaCategoria'>
                         {produtos.map((dados) => {
                             return(
-                            <ProdutoCard key={dados} dados={dados}/>
+                            <ProdutoCard key={dados} dados={dados} handleClick={() => clickProduto(dados)}/>
                         )})}
                     </div>
         </motion.div>

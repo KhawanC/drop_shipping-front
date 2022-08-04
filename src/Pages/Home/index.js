@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 import { api } from '../../Api/api';
 import { CarrosselSwiper } from '../../Components/CarrosselSwiper';
 import imagemBanner from '../../Source/banner_temp.png';
+import imagemBanner2 from '../../Source/istockphoto-1194426021-1024x1024.jpg';
 
 export const Home = (props) => {
 
@@ -101,37 +102,28 @@ export const Home = (props) => {
                     />
                 </div>
             </div>
-            {isLoadingDados ? 
-            <>
-                <div id='boxLoadingDadosPaginaHome'>
-                    <span class="loader"></span>
-                </div>
-            </>
-            :
-            <>
-                <div className='boxCarrosselPaginaHome'>
-                    <CarrosselSwiper imagem={[imagemBanner,imagemBanner, imagemBanner, imagemBanner, imagemBanner]}/>
-                </div>
-                <div className='boxTextOfertas'>
-                    <p className='boxOfertaTituloMaior'>Ofertas Especiaiss</p>
-                    <p className='boxOfertaTituloMenor'>Ver todas</p>
-                </div>
-                <div className='boxCategorias '>
-                    
-                    {dadosCategoria.map(dados => {
-                        return <IconeCategoria dadosCategoria={dados} key={dados.id} handleClick={() => categoriaHandle(dados)}/>
-                    })}
-                </div>
-                <div className='boxTextOfertas2'>
-                    <p className='boxOfertaTituloMaior'>Mais Populares</p>
-                    <p className='boxOfertaTituloMenor'>Ver todos</p>
-                </div>
-                <div className='boxDisplayItensHome'>
-                    {dadosProduto.map(dados => {
-                        return <ItemPaginaHome dadosProduto={dados} key={dados.id} handleClick={() => produtoHandle(dados)}/>
-                    })}
-                </div>
-            </>}
+            <div className='boxCarrosselPaginaHome'>
+                <CarrosselSwiper imagem={[imagemBanner2,imagemBanner2, imagemBanner2, imagemBanner2, imagemBanner2]}/>
+            </div>
+            <div className='boxTextOfertas'>
+                <p className='boxOfertaTituloMaior'>Ofertas Especiaiss</p>
+                <p className='boxOfertaTituloMenor'>Ver todas</p>
+            </div>
+            <div className='boxCategorias '>
+                
+                {dadosCategoria.map(dados => {
+                    return <IconeCategoria dadosCategoria={dados} key={dados.id} handleClick={() => categoriaHandle(dados)}/>
+                })}
+            </div>
+            <div className='boxTextOfertas2'>
+                <p className='boxOfertaTituloMaior'>Mais Populares</p>
+                <p className='boxOfertaTituloMenor'>Ver todos</p>
+            </div>
+            <div className='boxDisplayItensHome'>
+                {dadosProduto.map(dados => {
+                    return <ItemPaginaHome dadosProduto={dados} key={dados.id} handleClick={() => produtoHandle(dados)}/>
+                })}
+            </div>
             {isLoading ? <LoadingScreen/> : <div></div>}
             {isSideBarOpen ? <SideBar loggado={isLoggado} handleClose={closeHandle} navegar={navegarCadastro}/> : <div></div>}
         </motion.div>

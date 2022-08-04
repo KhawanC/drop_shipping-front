@@ -32,7 +32,7 @@ export const CarrosselSwiper = (props) => {
             >
                 {listaImagens.map((dados, index) => {
                     return(
-                        <SwiperSlide key={index}><img src={dados} alt='banner'/></SwiperSlide>
+                        <SwiperSlide key={index}><img src={dados} alt='banner' id='imagemSwiperCarrossel'/></SwiperSlide>
                     )})
                 };
             </Swiper>

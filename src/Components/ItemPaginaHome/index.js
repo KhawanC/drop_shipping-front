@@ -13,7 +13,7 @@ export const ItemPaginaHome = (props) => {
                 {isMouseEmCima ? <div>
                         <p className='tituloItemPaginaHome'>{props.dadosProduto.nome}</p>
                     </div> : <div>
-                        <p className='precoItemPaginaHome precoItemPaginaHomeTraco'>R${props.dadosProduto.preco}</p>
+                        <p className='precoItemPaginaHome precoItemPaginaHomeTraco'>R${(props.dadosProduto.preco).toFixed(2)}</p>
                         <p className='precoItemPaginaHome'>R${(props.dadosProduto.preco-((props.dadosProduto.preco*props.dadosProduto.prcntDesconto)/100)).toFixed(2)}</p>
                     </div>}
             </div>

@@ -76,10 +76,16 @@ export const Login = () => {
             </div>
             <div className='boxEntrarCriar'>
                 <button className='botaoEntrar' onClick={carregarCredenciais}>Entrar</button>
+                <button className='botaoEntrar' onClick={() => navigate('/cadastro')}>Cadastrar-se</button>
+
+                <div id='boxDivisaoPaginaLogin'>
+                    <hr id='barraDivisorPaginaLogin'/>
+                    <p id='textStylesDivisorPaginaHome'>ou</p>
+                    <hr id='barraDivisorPaginaLogin'/>
+                </div>
             
                 <div className='EsqueciCriar'>
                     <p className='textoEsqueciCriar' >Esqueci minha senha</p>
-                    <p className='textoEsqueciCriar' onClick={() => navigate('/cadastro')}>Cadastrar-se</p>
                     <p className='textoEsqueciCriar' >Fale Conosco</p>
                 </div>               
             </div>

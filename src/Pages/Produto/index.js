@@ -30,6 +30,7 @@ export const Produto = (props) => {
         listaImagens: {},
         listaPalavrasChaves: {},
         nome: '',
+        preco: 0
     });
 
     useEffect(() => {
@@ -39,7 +40,6 @@ export const Produto = (props) => {
         if(listaFavoritos.includes(location.state.id)) {
             setProdutoFavorito(true);
         }
-        console.log(listaCarrinho)
         listaCarrinho.map(dadoObjeto => {
             if(dadoObjeto.id === location.state.id) {
                 setItemCarrinho(true);
@@ -126,7 +126,7 @@ export const Produto = (props) => {
                 </div>
                 <div id='boxTabelaPrecoFreteComprarPaginaProduto'>
                         <div id='boxPrecoComprarPaginaProduto'>
-                            <p id='precoStylePaginaProduto'>De: <span id='precoRiscadoStylePaginaProduto'>R${dados.preco}</span> por:</p>
+                            <p id='precoStylePaginaProduto'>De: <span id='precoRiscadoStylePaginaProduto'>R${dados.preco.toFixed(2)}</span> por:</p>
                             <p id='precoNovoStylePaginaProduto'>R${(dados.preco-((dados.preco*dados.prcntDesconto)/100)).toFixed(2)}</p>
                         </div>
                         <div id='boxBotaoComprarPaginaProduto'>
