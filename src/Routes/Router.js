@@ -10,6 +10,7 @@ import { AnimatePresence } from 'framer-motion'
 import { Categoria } from '../Pages/Categoria';
 import { Carrinho } from '../Pages/Carrinho';
 import { Favoritos } from '../Pages/Favoritos';
+import { Conta } from '../Pages/Conta';
 
 export const Router = () => {
     const location = useLocation();
@@ -25,6 +26,7 @@ export const Router = () => {
                 <Route path="/produto/:produto" element={<Produto/>}/>
                 <Route path="/carrinho" element={<Carrinho/>}/>
                 <Route path="/favoritos" element={<Favoritos/>}/>
+                <Route path="/conta/:nome" element={<Conta/>}/>
                 <Route path="/" element={<Home/>}/>
             </Routes>
         </AnimatePresence>

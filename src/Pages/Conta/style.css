@@ -1,0 +1,27 @@
+#containerPaginaConta {
+    width: 100%;
+    min-height: 100vh;
+    max-height: fit-content;
+
+    padding: 20px;
+}
+
+#boxBoasVindaPaginaConta {
+    border: 1px solid red;
+    display: flex;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 1.5em;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#tituloStylePaginaConta {
+    color: white;
+
+    font-size: 23px;
+    letter-spacing: 2.1px;
+}

@@ -50,7 +50,7 @@ export const Produto = (props) => {
 
     const computarClique = async(id) => {
         try {
-            const res = await api.put('http://localhost:8081/dropshipping/produto/click', {
+            const res = await api.put('produto/click', {
                 id: id
             })
         } catch (error) {

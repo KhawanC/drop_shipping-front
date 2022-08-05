@@ -61,6 +61,7 @@ export const Cadastro = (props) => {
                 codigo: codigo
             }})
         } catch (error) {
+            console.log(error.response)
             setLoading(false)
         }
     }

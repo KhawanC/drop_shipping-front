@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import './style.css'
 import { AiOutlineClose, AiOutlineUserAdd, AiOutlineUser, AiOutlineShoppingCart, AiOutlinePhone, AiOutlineUserDelete } from 'react-icons/ai'
 import { LoadingScreen } from '../LoadingScreen';
+import { useNavigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
+
 
 export const SideBar = (props) => {
-    const [isLoading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     function desconectarUsuario() {
         setLoading(true);
@@ -12,7 +16,17 @@ export const SideBar = (props) => {
             setLoading(false)
             localStorage.removeItem('token')
             window.location.reload();
-        }, 2500) 
+        }, 2500);
+    };
+
+    const consultarUsuario = async () => {
+        let token = localStorage.getItem('token')
+        let encoded = jwtDecode(token)
+        navigate(`conta/${encoded.iss}`, {
+            state: {
+                dados: encoded.sub
+            }
+        })
     }
 
     return(
@@ -27,7 +41,7 @@ export const SideBar = (props) => {
                     />
                 </div>
                 {props.loggado ? <div className='boxNavigation'>
-                    <span className='textBoxNavigation'><AiOutlineUser className='iconeBoxNavigation' size={28}/> Conta</span>
+                    <span className='textBoxNavigation' onClick={() => consultarUsuario()}><AiOutlineUser className='iconeBoxNavigation' size={28}/> Conta</span>
                     <span className='textBoxNavigation'><AiOutlineShoppingCart className='iconeBoxNavigation' size={28}/> Carrinho</span>
                     <span className='textBoxNavigation' onClick={desconectarUsuario}><AiOutlineUserDelete className='iconeBoxNavigation' size={28}/> Desconectar</span>
                     <span className='textBoxNavigation'><AiOutlinePhone className='iconeBoxNavigation' size={28}/> Fale Conosco</span>

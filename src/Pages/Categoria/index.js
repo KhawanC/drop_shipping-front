@@ -47,7 +47,7 @@ export const Categoria = (props) => {
 
     const computarClique = async(id) => {
         try {
-            const res = await api.put('http://localhost:8081/dropshipping/categoria/click', {
+            const res = await api.put('categoria/click', {
                 id: id
             })
         } catch (error) {

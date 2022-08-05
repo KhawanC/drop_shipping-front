@@ -49,8 +49,8 @@ export const Favoritos = (props) => {
             <div id='containerProdutosPaginaCategoria'>
                         {produtos.map((dados) => {
                             return(
-                            <ProdutoCard key={dados} dados={dados} handleClick={() => clickProduto(dados)}/>
-                        )})}
+                            <ProdutoCard key={dados.id} dados={dados} handleClick={() => clickProduto(dados)}/>
+                        )})};
                     </div>
         </motion.div>
     );
