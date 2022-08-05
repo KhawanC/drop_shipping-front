@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './style.css'
-import { AiOutlineClose, AiOutlineUserAdd, AiOutlineUser, AiOutlineShoppingCart, AiOutlinePhone, AiOutlineUserDelete } from 'react-icons/ai'
+import './style.css';
+import { AiOutlineClose, AiOutlineUserAdd, AiOutlineUser, AiOutlineShoppingCart, AiOutlinePhone, AiOutlineUserDelete } from 'react-icons/ai';
 import { LoadingScreen } from '../LoadingScreen';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
@@ -26,8 +26,8 @@ export const SideBar = (props) => {
             state: {
                 dados: encoded.sub
             }
-        })
-    }
+        });
+    };
 
     return(
         <div className='containerSideBar'>

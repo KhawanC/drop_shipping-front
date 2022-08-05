@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './style.css'
+import './style.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PinInput from 'react-pin-input';
 import { LoadingScreen } from '../../Components/LoadingScreen';
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 export const ConfirmacaoEmail = (props) => {
     const [codigo, setCodigo] = useState();
