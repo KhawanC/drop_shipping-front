@@ -7,7 +7,6 @@
 }
 
 #boxBoasVindaPaginaConta {
-    border: 1px solid red;
     display: flex;
 
     width: 100%;
@@ -23,6 +22,7 @@
     color: white;
 
     font-size: 23px;
+    text-align: center;
     letter-spacing: 2.1px;
 }
 
@@ -34,25 +34,52 @@
 }
 
 .boxSectionsPaginaConta {
-    border: 1px solid #35383f;
     display: flex;
 
     width: 100%;
     height: 7em;
 
-    padding: 10px;
+    padding: 8px;
 
     margin-top: 3.5em;
+
+    border: 1px solid #35383f;
+    border-radius: 25px;
+
+    box-shadow: #00000059 0px 5px 15px;
+
+    transition: 200ms;
+}
+
+.boxSectionsPaginaConta:hover {
+    cursor: pointer;
+
+    transform: translate(0, -15px);
 }
 
 .boxIconeSectionPaginaConta {
-    border: 1px solid blue;
-    width: 40%;
+    display: flex;
+
+    width: 30%;
     height: 100%;
+
+    justify-content: center;
+    align-items: center;
 }
 
 .boxTextoSectionPaginaConta {
-    border: 1px solid pink;
-    width: 60%;
+    display: flex;
+
+    width: 70%;
     height: 100%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.textStyleTextoPaginaConta {
+    color: white;
+    text-align: center;
+
+    font-size: 13px;
 }

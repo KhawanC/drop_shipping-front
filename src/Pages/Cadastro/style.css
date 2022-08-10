@@ -121,7 +121,7 @@
     border: 0;
     border-radius: 25px;
 
-    transition: 600ms;
+    transition: 200ms;
 }
 
 #botaoCadastroFormulario:hover {

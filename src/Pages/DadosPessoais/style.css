@@ -1,0 +1,99 @@
+#containerPaginaDadosPessoais {
+    width: 100%;
+    height: 100vh;
+
+    padding: 20px;
+}
+
+#boxBoasVindaPaginaDadosPessoais {
+    display: flex;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 1.5em;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#tituloStylePaginaDadosPessoais {
+    color: white;
+
+    font-size: 23px;
+    text-align: center;
+    letter-spacing: 2.1px;
+}
+
+#boxTabelaPaginaDadosPessoais {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: fit-content;
+
+    margin-top: 3em;
+
+    justify-content: center;
+}
+
+#boxColunaTabelaPaginaDadosPessoais {
+    border-bottom: 1px solid black;
+    display: flex;
+
+    width: 100%;
+    height: 3.5em;
+
+    align-items: center;
+
+    transition: 200ms;
+}
+
+#boxColunaTabelaPaginaDadosPessoais:hover {
+    background-color: #80808038;
+}
+
+.textoTabela1StylePaginaDadosPessoais {
+    font-size: 14px;
+
+    margin-left: 10px;
+}
+
+.boxParte1ColunaTabelaPaginaDadosPessoais {
+    display: flex;
+
+    width: 35%;
+    height: 100%;
+
+    align-items: center;
+}
+
+.boxParte2ColunaTabelaPaginaDadosPessoais {
+    display: flex;
+
+    width: 55%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.boxParte3ColunaTabelaPaginaDadosPessoais {
+    display: flex;
+
+    width: 10%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.boxParte3ColunaTabelaPaginaDadosPessoais:hover {
+    cursor: pointer;
+}
+
+.dadosTextoTabelaStylePaginaDadosPessoais {
+    color: gray;
+    font-size: 14px;
+}

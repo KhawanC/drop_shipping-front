@@ -42,7 +42,7 @@ export const SideBar = (props) => {
                 </div>
                 {props.loggado ? <div className='boxNavigation'>
                     <span className='textBoxNavigation' onClick={() => consultarUsuario()}><AiOutlineUser className='iconeBoxNavigation' size={28}/> Conta</span>
-                    <span className='textBoxNavigation'><AiOutlineShoppingCart className='iconeBoxNavigation' size={28}/> Carrinho</span>
+                    <span className='textBoxNavigation' onClick={() => navigate('/carrinho')}><AiOutlineShoppingCart className='iconeBoxNavigation' size={28}/> Carrinho</span>
                     <span className='textBoxNavigation' onClick={desconectarUsuario}><AiOutlineUserDelete className='iconeBoxNavigation' size={28}/> Desconectar</span>
                     <span className='textBoxNavigation'><AiOutlinePhone className='iconeBoxNavigation' size={28}/> Fale Conosco</span>
                 </div> : <div className='boxNavigation'>

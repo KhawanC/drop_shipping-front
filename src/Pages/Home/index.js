@@ -83,19 +83,11 @@ export const Home = (props) => {
                     onClick={() => setSideBarOpen(true)}
                 />
                 <div className='boxNotiFav'>
-                    <AiOutlineSearch
-                        className='iconNotiFav'
-                        size={23}
-                    />
                     <AiOutlineShoppingCart
                         className='iconNotiFav'
                         size={23}
                         onClick={() => navigate('/carrinho')}
                     /> 
-                    <MdOutlineNotifications
-                        className='iconNotiFav'
-                        size={23}
-                    />
                     <AiOutlineHeart
                         className='iconNotiFav'
                         size={23}
@@ -132,7 +124,7 @@ export const Home = (props) => {
                     })}
                 </div>
                 <div className='boxTextOfertas2'>
-                    <p className='boxOfertaTituloMaior'>Mais Populares</p>
+                    <p className='boxOfertaTituloMaior'>Produtos Populares</p>
                     <p className='boxOfertaTituloMenor'>Ver todos</p>
                 </div>
                 <div className='boxDisplayItensHome'>

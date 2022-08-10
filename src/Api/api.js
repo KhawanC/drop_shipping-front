@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'http://10.25.103.64:8081/dropshipping'
+    //baseURL: 'http://192.168.0.108:8081/dropshipping'
+    baseURL: 'http://192.168.0.102:8081/dropshipping'
 });
 
 export const viaCep = axios.create({

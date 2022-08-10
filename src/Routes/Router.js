@@ -11,6 +11,9 @@ import { Categoria } from '../Pages/Categoria';
 import { Carrinho } from '../Pages/Carrinho';
 import { Favoritos } from '../Pages/Favoritos';
 import { Conta } from '../Pages/Conta';
+import { DadosPessoais } from '../Pages/DadosPessoais';
+import { AlterarSenha } from '../Pages/AlterarSenha';
+import { ConfirmacaoEmailSenha } from '../Pages/ConfirmacaoEmailSenha';
 
 export const Router = () => {
     const location = useLocation();
@@ -27,6 +30,10 @@ export const Router = () => {
                 <Route path="/carrinho" element={<Carrinho/>}/>
                 <Route path="/favoritos" element={<Favoritos/>}/>
                 <Route path="/conta/:nome" element={<Conta/>}/>
+                <Route path="/dados-pessoais" element={<DadosPessoais/>}/>
+                <Route path="/recuperar-senha" element={<AlterarSenha/>}/>
+                <Route path="/dados-pessoais/alterar-senha" element={<AlterarSenha/>}/>
+                <Route path="/dados-pessoais/alterar-senha/confirmar-email" element={<ConfirmacaoEmailSenha/>}/>
                 <Route path="/" element={<Home/>}/>
             </Routes>
         </AnimatePresence>
