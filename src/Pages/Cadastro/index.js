@@ -4,7 +4,6 @@ import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import { LoadingScreen } from '../../Components/LoadingScreen';
 import ReactInputMask from 'react-input-mask';
-import { PopupMessageError } from '../../Components/PopupMessageError';
 import { api } from '../../Api/api';
 import { motion } from 'framer-motion'
 
@@ -145,7 +144,12 @@ export const Cadastro = (props) => {
                 <button id='botaoCadastroFormulario' onClick={enviarFormulario}>Enviar</button>
             </div>
             {isLoading ? <LoadingScreen/> : <div></div>}
-            {isPopupError ? <PopupMessageError mensagem={errorMessage}/> : <div></div>}
+            {isPopupError ? 
+            <div id='boxErrorMensagemPaginaLogin'>
+                <p id='textoStyleErrorMensagemPaginaLogin'>{errorMessage}</p>
+            </div> : 
+            <>
+            </>}
         </motion.div>
     );
 };

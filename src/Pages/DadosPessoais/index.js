@@ -27,8 +27,14 @@ export const DadosPessoais = (props) => {
     useEffect(() => {
         let token = localStorage.getItem('token');
         let tokenDecoded = jwtDecode(token);
-        var partsOfStr = tokenDecoded.sub.split(',');
-        resgatarDados(partsOfStr[0])
+        let exp = new Date(parseInt(tokenDecoded.exp) * 1000)
+        if(exp > Date(parseInt(Date.now()) * 1000)) {
+            localStorage.removeItem('token')
+            navigate('/login')
+        } else {
+            var partsOfStr = tokenDecoded.sub.split(',');
+            resgatarDados(partsOfStr[0])
+        }
     }, [])
 
     return(

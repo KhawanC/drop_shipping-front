@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import { api } from '../../Api/api';
 import { LoadingScreen } from '../../Components/LoadingScreen';
-import { PopupMessageError } from '../../Components/PopupMessageError';
 
 export const Login = () => {
     const [email, setEmail] = useState('')
@@ -23,8 +22,9 @@ export const Login = () => {
                 password: senha
             })
             localStorage.setItem("token", res.data.tokenAuth)
-            navigate(-1)
+            navigate('/')
         } catch (error) {
+            console.log(error.response)
             setErroMensagem('Credenciais inválidas!')
             setLoading(false)
             setError(true)
@@ -74,6 +74,12 @@ export const Login = () => {
                     placeholder='Senha'
                 />
             </div>
+            {isError ? 
+            <div id='boxErrorMensagemPaginaLogin'>
+                <p id='textoStyleErrorMensagemPaginaLogin'>{erroMensagem}</p>
+            </div> : 
+            <>
+            </>}
             <div className='boxEntrarCriar'>
                 <button className='botaoEntrar' onClick={carregarCredenciais}>Entrar</button>
                 <button className='botaoEntrar' onClick={() => navigate('/cadastro')}>Cadastrar-se</button>
@@ -90,7 +96,6 @@ export const Login = () => {
                 </div>               
             </div>
             {isLoading ? <LoadingScreen/> : <div></div>}
-            {isError ? <PopupMessageError mensagem={erroMensagem}/> : <div></div>}
         </motion.div>
     );
 }

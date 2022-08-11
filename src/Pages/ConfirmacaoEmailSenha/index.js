@@ -4,6 +4,7 @@ import { LoadingScreen } from '../../Components/LoadingScreen';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PinInput from 'react-pin-input';
+import { ModalConfirmacao } from '../../Components/ModalConfirmacao'
 import { api } from '../../Api/api';
 
 export const ConfirmacaoEmailSenha = (props) => {
@@ -11,20 +12,13 @@ export const ConfirmacaoEmailSenha = (props) => {
     const [senha, setSenha] = useState('');
     const [senhaConfirmacao, setSenhaConfirmacao] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [mensagemModal, setMensagemModal] = useState('');
     const [isLoading, setLoading] = useState(false);
     const [isCodigoCorreto, setCodigoCorreto] = useState(false);
     const [isSenhasIguais, setSenhasIguais] = useState(false);
     const [isError, setError] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-
-    useEffect(() => {
-        if(location.state === "" || location.state === null || location.state === undefined) {
-            navigate("/")
-        } else {
-            console.log(location.state)
-        }
-    }, [])
 
     function confirmarCodigo() {
         setLoading(true)
@@ -55,15 +49,34 @@ export const ConfirmacaoEmailSenha = (props) => {
                 } 
                 else {
                     console.log(location.state)
-                    // const res = api.put('usuario/alterarSenha', {
-                    //     id:
-                    // })
+                    const res = await api.put('usuario/alterarSenha', {
+                        id: parseInt(location.state.token[0]),
+                        senha: senha
+                    }, {
+                        headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+                    })
+                    setMensagemModal(e => 'Senha alterada com sucesso!');
+                    setLoading(false);
+                    setSenhasIguais(true);
                 }
             } catch (error) {
                 console.log(error.response)
             }
         }, 1000)
     }
+
+    const clickModalConfirmar = () => {
+        localStorage.removeItem('token')
+        navigate('/login')
+    }
+
+    useEffect(() => {
+        if(location.state === "" || location.state === null || location.state === undefined) {
+            navigate("/")
+        } else {
+            console.log(location.state)
+        }
+    }, [])
 
     return(
         <motion.div
@@ -79,14 +92,14 @@ export const ConfirmacaoEmailSenha = (props) => {
                 </div>
                 <div id='boxInputsPaginaConfirmacaoEmailSenha'>
                     <input 
-                        type={'text'} 
+                        type={'password'} 
                         placeholder='Senha' 
                         id='inputStylePaginaAlterarSenha'
                         value={senha}
                         onChange={e => setSenha(e.target.value)}
                     />
                     <input 
-                    type={'text'} 
+                    type={'password'} 
                     placeholder='Confirmar Senha'
                     id='inputStylePaginaAlterarSenha'
                     value={senhaConfirmacao}
@@ -109,6 +122,12 @@ export const ConfirmacaoEmailSenha = (props) => {
                     </> :
                     <>
                         <button id='botaoStylePaginaAlterarSenha' onClick={() => confirmarEmail()}>Enviar</button>
+                    </>}
+                    {isSenhasIguais ?
+                    <>
+                        <ModalConfirmacao mensagem={mensagemModal} handleClose={() => clickModalConfirmar()}/>
+                    </> :
+                    <>
                     </>}
                 </div>
             </> :

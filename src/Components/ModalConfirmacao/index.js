@@ -10,7 +10,7 @@ export const ModalConfirmacao = (props) => {
                     size={60}
                     color='green'
                 />
-                <p id='textModalConfirmacao'>Você foi cadastrado com sucesso!</p>
+                <p id='textModalConfirmacao'>{props.mensagem}</p>
                 <button id='botaoModalConfirmacao' onClick={props.handleClose}>Continuar</button>
             </div>
         </div>

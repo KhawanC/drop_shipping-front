@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { BsArrowLeft } from "react-icons/bs";
@@ -20,10 +20,10 @@ export const AlterarSenha = (props) => {
             var partsOfStr = tokenDecoded.sub.split(',');
             if(email !== partsOfStr[1]) {
                 setError(true);
+                setLoading(false);
             } else {
                 enviarEmail()
             }
-            setLoading(false);
         }, 1000)
     }
 
@@ -34,8 +34,9 @@ export const AlterarSenha = (props) => {
             let aleatNum = Math.floor(Math.random()*9000000) + 1000000;
             const res = await api.post('email', {
                 destinatario: email,
-                codigo: aleatNum
+                codigo: aleatNum,
             })
+            setLoading(false);
             navigate('/dados-pessoais/alterar-senha/confirmar-email', {
                 state: {token: partsOfStr, codigo: aleatNum}
             })
@@ -43,6 +44,16 @@ export const AlterarSenha = (props) => {
             console.log(error.response)
         }
     }
+
+    useEffect(() => {
+        let token = localStorage.getItem('token');
+        let tokenDecoded = jwtDecode(token);
+        let exp = new Date(parseInt(tokenDecoded.exp) * 1000)
+        if(exp > Date(parseInt(Date.now()) * 1000)) {
+            localStorage.removeItem('token')
+            navigate('/login')
+        }
+    }, [])
 
     return(
         <motion.div 
