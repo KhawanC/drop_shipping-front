@@ -200,7 +200,7 @@ export const Endereco = (props) => {
                 <button id='botaoCadastroFormulario' className='containerButtonCadastroEndereco' onClick={carregarDados}>Confirmar</button>
             </div>
             {isLoading ? <LoadingScreen/> : <div></div>}
-            {isCompleto ? <ModalConfirmacao handleClose={clickConfirmar}/> : <div></div>}
+            {isCompleto ? <ModalConfirmacao handleClose={clickConfirmar} mensagem={'Conta criada com sucesso!'}/> : <div></div>}
         </motion.div>
     );
 };

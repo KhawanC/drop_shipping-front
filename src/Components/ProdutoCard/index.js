@@ -23,7 +23,7 @@ export const ProdutoCard = (props) => {
                     <p id='precoNovoPaginaCategoria'>R${(props.dados.preco-((props.dados.preco*props.dados.prcntDesconto)/100)).toFixed(2)} - <span>{props.dados.prcntDesconto}% OFF</span></p>
                 </div> :
                 <div id='boxDescricao2PaginaCategoria'> 
-                    <p id='precoNovoPaginaCategoria'>{props.dados.preco}</p>
+                    <p id='precoNovoPaginaCategoria'>R${(props.dados.preco).toFixed(2)} - FRETE GRATIS</p>
                 </div>}
             </div>
         </div>

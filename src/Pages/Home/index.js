@@ -60,12 +60,12 @@ export const Home = (props) => {
     }
 
     useEffect(() => {
-        carregarDados()
         if(localStorage.getItem("token") !== null && localStorage.getItem("token") !== undefined) {
             setLoggado(true)
         } else {
             setLoggado(false)
         }
+        carregarDados()
     }, [])
 
     return(

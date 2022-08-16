@@ -71,8 +71,8 @@ export const Carrinho = (props) => {
             </div>
             <div id='boxConcluirCompraPaginaCarrinho'>
                 <p id='textoPrecoStyleItemCarrinho'>Total: <span id='precoStyleItemCarrinho'>R${valorTotal}</span></p>
-                <p id='textoPrecoStyleItemCarrinho'>Frete: <span id='precoStyleItemCarrinho'>R$0.0</span></p>
-                <button id='buttonStylePaginaCarrinho'>Ir para o pagamento</button>
+                <p id='textoPrecoStyleItemCarrinho'>Frete: <span id='precoStyleItemCarrinho'>GRÁTIS</span></p>
+                <button id='buttonStylePaginaCarrinho' onClick={() => navigate('/carrinho/pagamento')}>Ir para o pagamento</button>
             </div>
         </motion.div>
     );

@@ -1,0 +1,85 @@
+#containerPaginaFinalizacaoPagamento {
+    display: flex;
+
+    width: 100vw;
+    height: 100vh;
+
+    padding: 20px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#boxMeioPaginaFinalizacaoPagamento {
+    width: 100%;
+    height: 50%;
+}
+
+#boxIconeTextoPaginaFinalizacaoPagamento {
+    width: 100%;
+    height: 70%;
+}
+
+#boxIconePaginaFinalizacaoPagamento {
+    display: flex;
+
+    width: 100%;
+    height: 70%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#boxTextoPaginaFinalizacaoPagamento {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 30%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.textStylePaginaFinalizacaoPagamento {
+    color: white;
+
+    font-size: 18px;
+    text-align: center;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#boxBotoesPaginaFinalizacaoPagamento {
+    display: flex;
+
+    width: 100%;
+    height: 30%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonStylePaginaFinalizacaoPagamento {
+    background-color: #393939;
+    color: white;
+
+    width: 12.5em;
+    height: 3.5em;
+
+    border: none;
+    border-radius: 30px;
+
+    margin-right: 10px;
+    margin-left: 10px;
+
+    transition: 150ms;
+}
+
+.buttonStylePaginaFinalizacaoPagamento:hover {
+    background-color: white;
+    color: black;
+
+    cursor: pointer;
+}

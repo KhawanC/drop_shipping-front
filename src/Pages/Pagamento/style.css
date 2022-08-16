@@ -1,0 +1,141 @@
+#containerPaginaPagamento {
+    width: 100vw;
+    min-height: 100vh;
+    max-height: fit-content;
+
+    padding: 20px;
+}
+
+#boxMetodoPagamentoPaginaPagamento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 5em;
+    margin-bottom: 7em;
+    gap: 50px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonMetodoPagamentoStylePaginaPagamento {
+    display: flex;
+
+    background-color: transparent;
+    color: white;
+
+    width: 100%;
+    height: 3.5em;
+
+    border: 1px solid #77786f;
+    border-radius: 25px;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: 250ms;
+}
+
+.buttonMetodoPagamentoInvalidoStylePaginaPagamento {
+    display: flex;
+
+    background-color: red;
+    color: white;
+
+    width: 100%;
+    height: 3.5em;
+
+    border: 1px solid #77786f;
+    border-radius: 25px;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: line-through; 
+
+    transition: 250ms;
+}
+
+.buttonPreenchidoMetodoPagamentoStylePaginaPagamento {
+    display: flex;
+
+    background-color: white;
+    color: #73c300;
+
+    width: 100%;
+    height: 3.5em;
+
+    border: 1px solid #77786f;
+    border-radius: 25px;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: 250ms;
+}
+
+.buttonMetodoPagamentoStylePaginaPagamento:hover {
+    background-color: white;
+    color: #73c300;
+
+    cursor: pointer;
+}
+
+.iconeBotaoPagamentoPaginaPagamento {
+    margin-right: 5px;
+}
+
+#boxTituloPaginaPagamento {
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 3em;
+}
+
+.tituloStylePaginaPagamento {
+    color: white;
+
+    font-size: 25px;
+    font-weight: 700;
+    text-align: start;
+}
+
+.subTituloStylePaginaPagamento {
+    color: white;
+
+    font-size: 17px;
+    text-align: start;
+
+    margin-top: 2em;
+}
+
+#boxInputPaginaPagamento {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 3em;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.inputStylePaginaPagamento {
+    background-color: transparent;
+    color: white;
+
+    width: 70%;
+    height: 35px;
+
+    margin-bottom: 3em;
+
+    padding: 7px;
+    
+    border: 1px solid gray;
+    border-radius: 15px;
+}

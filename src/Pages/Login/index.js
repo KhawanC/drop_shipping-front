@@ -53,7 +53,7 @@ export const Login = () => {
             exit={{opacity: 0, transition: {duration: 0.1}}}
         >
             <div className='boxVoltar'>
-                <BsArrowLeft className='botaoVoltar' onClick={() => navigate(-1)}/>
+                <BsArrowLeft className='botaoVoltar' onClick={() => navigate('/')}/>
             </div>
             <div className='boxLogo'>
                 <BsBrightnessAltHighFill className='imagemLogo'/>

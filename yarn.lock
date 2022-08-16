@@ -7578,6 +7578,11 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-sdk-mercadopago@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-sdk-mercadopago/-/react-sdk-mercadopago-1.1.1.tgz#9a0dff45e1ad17228d405029dabf76a02d839e41"
+  integrity sha512-HG3WwC1YztevWe5MrcaY1/MzjTtohihstBMI5QXFWB6zQDxcL4PZT39q6SYQ2ZvNZMYCXxSFcGf6FheELthIXQ==
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"

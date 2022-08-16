@@ -14,6 +14,8 @@ import { Conta } from '../Pages/Conta';
 import { DadosPessoais } from '../Pages/DadosPessoais';
 import { AlterarSenha } from '../Pages/AlterarSenha';
 import { ConfirmacaoEmailSenha } from '../Pages/ConfirmacaoEmailSenha';
+import { FinalizacaoPaamento } from '../Pages/FinalizacaoPagamento';
+import { Pagamento } from '../Pages/Pagamento';
 
 export const Router = () => {
     const location = useLocation();
@@ -28,6 +30,8 @@ export const Router = () => {
                 <Route path='/categoria/:categoria' element={<Categoria/>}/>
                 <Route path="/produto/:produto" element={<Produto/>}/>
                 <Route path="/carrinho" element={<Carrinho/>}/>
+                <Route path="/carrinho/pagamento" element={<Pagamento/>}/>
+                <Route path="/carrinho/concluir-pagamento/:id" element={<FinalizacaoPaamento/>}/>
                 <Route path="/favoritos" element={<Favoritos/>}/>
                 <Route path="/conta/:nome" element={<Conta/>}/>
                 <Route path="/dados-pessoais" element={<DadosPessoais/>}/>

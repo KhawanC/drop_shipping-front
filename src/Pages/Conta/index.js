@@ -43,14 +43,14 @@ export const Conta = (props) => {
                         <p className='textStyleTextoPaginaConta'>Dados Pessoais</p>
                     </div>
                 </div>
-                <div className='boxSectionsPaginaConta'>
+                <div className='boxSectionsPaginaConta' onClick={() => navigate('/dados-pessoais/alterar-senha')}>
                     <div className='boxIconeSectionPaginaConta'>
                         <IoKeyOutline
                             color='white'
                             size={35}
                         />
                     </div>
-                    <div className='boxTextoSectionPaginaConta' onClick={() => navigate('/dados-pessoais/alterar-senha')}>
+                    <div className='boxTextoSectionPaginaConta'>
                         <p className='textStyleTextoPaginaConta'>Alterar senha</p>
                     </div>
                 </div>
